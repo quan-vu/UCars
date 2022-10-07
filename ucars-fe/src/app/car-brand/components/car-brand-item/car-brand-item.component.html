@@ -1,0 +1,39 @@
+<div class="car-brand-item">
+    <div class="check flex-none">
+        <div class="uc-checkbox-circle">
+            <input type="checkbox" id="checkbox-{{carBrand.id}}" />
+            <label for="checkbox-{{carBrand.id}}"></label>
+        </div>
+    </div>
+    <div class="logo flex-none">
+        <img [src]="carBrand.logo"/>
+    </div>
+    <div class="info">
+        <h4 class="name">{{carBrand.name}}</h4>
+        <div>
+            <div class="description">
+                {{carBrand.description}}
+            </div>
+            <div class="count-models">
+                {{carBrand.count_models}} Models
+            </div>
+        </div>
+    </div>
+    <div class="last-update flex-none">
+        <p>Last Update</p>
+        <p>{{carBrand.updated_at}}</p>
+    </div>
+    <div class="status flex-none">
+        <span *ngIf="carBrand.is_active" class="active">
+            <i class="dot"></i> Active
+        </span>
+        <span *ngIf="!carBrand.is_active" class="inactive">
+            <i class="dot"></i> Inactive
+        </span>
+    </div>
+    <div class="actions text-right">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-outline-secondary">View Details</button>            
+        </div>
+    </div>
+</div>

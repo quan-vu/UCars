@@ -12,15 +12,23 @@
     src: local("Poppins"), url(./assets/fonts/Poppins/Poppins-Regular.ttf) format("truetype");
 }
 
-* { margin: 0; padding: 0;}
+* {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     display: flex;
     flex-direction: column;
-    font-family: 'Source Sans Pro';
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
 }
-  
-body, html {
+
+body,
+html {
     height: 100%;
 }
 
@@ -28,23 +36,81 @@ body, html {
 .btn {
     border-radius: 4px;
 }
+
 .btn-primary {
     background: #0F5EDD;
 }
-.btn-flex{
+
+.btn-flex {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 9px 16px;
     gap: 12px;
 }
+
+.btn-outline-secondary {
+    background: #FFFFFF;
+    border: 1px solid #B4B4B4;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #232323;
+}
+
 .flex-none {
     flex: none !important;
 }
+
 .font-secondary {
     font-family: 'Poppins';
 }
 
 .page {
-    margin: 2rem;
+    margin: 2.5rem 3rem;
+}
+
+/* Style Guide */
+.uc-checkbox-circle {
+    position: relative;
+}
+
+.uc-checkbox-circle label {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 28px;
+}
+
+.uc-checkbox-circle label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 7px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+}
+
+.uc-checkbox-circle input[type="checkbox"] {
+    visibility: hidden;
+}
+
+.uc-checkbox-circle input[type="checkbox"]:checked+label {
+    background-color: #66bb6a;
+    border-color: #66bb6a;
+}
+
+.uc-checkbox-circle input[type="checkbox"]:checked+label:after {
+    opacity: 1;
 }
