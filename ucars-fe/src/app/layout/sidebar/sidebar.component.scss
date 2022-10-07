@@ -39,6 +39,7 @@
 
     .menu {
         list-style: none;
+        padding: 0;
 
         &-item {
             margin: 10px 0;
@@ -47,13 +48,13 @@
                 display: block;
                 height: 100%;
                 padding: 15px;
-            }
 
-            &.active, &:hover {
-                background: #0F5EDD;
-                border-radius: 6px;
-                a {
-                    color: #ffffff;
+                &.active, &:hover {
+                    background: #0F5EDD;
+                    border-radius: 6px;
+                    a {
+                        color: #ffffff;
+                    }
                 }
             }
 

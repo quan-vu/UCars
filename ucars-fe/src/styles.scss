@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "~bootstrap/scss/bootstrap";
+
 @font-face {
     font-family: "Source Sans Pro";
     src: local("Source Sans Pro"), url(./assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"), url(./assets/fonts/Poppins/Poppins-Regular.ttf) format("truetype");
 }
 
 * { margin: 0; padding: 0;}
@@ -15,4 +22,29 @@ body {
   
 body, html {
     height: 100%;
+}
+
+/* Customize */
+.btn {
+    border-radius: 4px;
+}
+.btn-primary {
+    background: #0F5EDD;
+}
+.btn-flex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 9px 16px;
+    gap: 12px;
+}
+.flex-none {
+    flex: none !important;
+}
+.font-secondary {
+    font-family: 'Poppins';
+}
+
+.page {
+    margin: 2rem;
 }

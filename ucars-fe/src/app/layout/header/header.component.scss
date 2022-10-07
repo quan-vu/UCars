@@ -5,73 +5,42 @@
 
     a {
         text-decoration: none;
-    
-        &:focus, &:visited {
+
+        &:focus,
+        &:visited {
             color: inherit;
         }
     }
 
 
-    nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 12px 20px;
+    .btn-icon {
 
-        .navbar-nav {
-            padding: 0;
 
-            li {
-                display: inline-block;
-                float: left;
-
-                a {
-                    display: block;
-                    padding: 10px;
-                    margin: 0 5px;
-
-                    &:hover{
-                        background-color: #eeeeee;
-                        border-radius: 50px;
-                    }
-                }
-
-                .button-icon {
-
-                    width: 24px;
-                    height: 24px;
-                    text-align: center;
-
-                    img {
-                        max-width: 100%;
-                        max-height: 100%;
-                    }
-                }
-            }
-        }
-
-        .submenu {
-            display: none;
-        }
-
-        .user-controls {
-            .avatar {
-                width: 32px;
-                height: 32px;
-                display: inline-block;
-                float: left;
-                margin: -4px 10px 0 0px;
-            }
-
-            .name {
-                display: inline-block;
-                line-height: 28px;
-            }
-
-            .carret {
-                display: inline-block;
-                margin: 0 5px;
-            }
+        img {
+            width: 24px;
+            height: 24px;
+            text-align: center;
         }
     }
-}  
+
+    .user-controls {
+        .avatar {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            float: left;
+            margin: -4px 10px 0 0px;
+        }
+
+        .name {
+            display: inline-block;
+            line-height: 28px;
+        }
+
+        .carret {
+            display: inline-block;
+            margin: 0 5px;
+        }
+    }
+
+}

@@ -6,8 +6,8 @@
         <div class="toggle"><img src="/assets/icons/direction-icon.png"/></div>
     </div>
     <ul *ngFor="let item of menuItems" class="menu">
-        <li class="menu-item" [ngClass]="{'active': item.isActive, 'divider': item.isDivider }">
-            <a routerLink="item.route">
+        <li class="menu-item" [ngClass]="{'divider': item.isDivider }">
+            <a [routerLink]="item.route" [routerLinkActive]="['active']" [routerLinkActiveOptions]={exact:true}>
                 <span *ngIf="item.icon" class="icon"><img [src]="item.icon"/></span>
                 {{item.name}}
             </a>
