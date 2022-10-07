@@ -1,10 +1,38 @@
-<div fxLayout="row" fxLayoutAlign="space-between center">
-    <div>Header</div>
-    <div fxLayout="row" fxLayoutGap="20px">
-      <a routerLink="/login">Login</a>
-      <a routerLink="/registration">Registration</a>
-      <a routerLink="/dashboard">Dashboard</a>
-      <a routerLink="/users">Users</a>
-      <a routerLink="/account-settings">Account Settings</a>
-    </div>
-</div>
+<nav>
+  <div class="search-box">
+    <!-- Search -->
+  </div>
+  <div class="navbar">
+    <ul class="navbar-nav">
+      <li class="item">
+        <a class="button button-icon" href="#">
+          <img src="/assets/icons/info-icon.png" />
+        </a>
+      </li>
+      <li class="item">
+        <a class="button button-icon" href="#">
+          <img src="/assets/icons/notification-icon.png" />
+        </a>
+      </li>
+      <li class="item has-submenu user-controls">
+        <a class="button" href="#">
+          <img class="avatar" src="/assets/icons/user.svg" />
+          <span class="name">Admin</span>
+          <span class="carret"><img src="/assets/icons/carret-icon.png"></span>
+        </a>
+        <ol class="submenu">
+          <li>
+            <a href="#">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Logout
+            </a>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -12,7 +12,7 @@ import {LayoutModule} from './layout/layout.module';
   imports: [
     BrowserModule,
     RouterModule.forRoot([]),
-    RouterModule.forRoot([], { preloadingStrategy: PreloadAllModules }),
+    // RouterModule.forRoot([], { preloadingStrategy: PreloadAllModules }),
     LayoutModule,
   ],
   providers: [],

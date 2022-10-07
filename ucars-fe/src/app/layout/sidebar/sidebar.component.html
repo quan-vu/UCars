@@ -1,3 +1,16 @@
 <div>
-    Sidebar
+    <div class="head">
+        <div class="logo">
+            <a href="/"><img src="/assets/images/logo.png"/></a>
+        </div>
+        <div class="toggle"><img src="/assets/icons/direction-icon.png"/></div>
+    </div>
+    <ul *ngFor="let item of menuItems" class="menu">
+        <li class="menu-item" [ngClass]="{'active': item.isActive, 'divider': item.isDivider }">
+            <a routerLink="item.route">
+                <span *ngIf="item.icon" class="icon"><img [src]="item.icon"/></span>
+                {{item.name}}
+            </a>
+        </li>
+    </ul>
 </div>
