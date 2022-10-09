@@ -25,6 +25,7 @@ body {
     font-weight: 500;
     font-size: 14px;
     line-height: 22px;
+    color: #232323;
 }
 
 body,
@@ -67,9 +68,6 @@ html {
     font-family: 'Poppins';
 }
 
-.page {
-    margin: 2.5rem 3rem;
-}
 
 /* Style Guide */
 .uc-checkbox-circle {
@@ -113,4 +111,21 @@ html {
 
 .uc-checkbox-circle input[type="checkbox"]:checked+label:after {
     opacity: 1;
+}
+
+/* page*/
+.page {
+    margin: 2.5rem 3rem;
+
+    &-title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        color: #2F465F;
+
+        &-icon {
+            color: #232323;
+            font-size: 16px;
+        }
+    }
 }

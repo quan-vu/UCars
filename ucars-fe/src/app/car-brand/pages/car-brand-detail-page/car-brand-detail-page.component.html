@@ -1,0 +1,41 @@
+<div class="page car-brand-detail" [ngClass]="{'view-only': !isEditMode}">
+    <div class="col-md-12">
+        <div class="row">
+            <h2 class="page-title">
+                <a routerLink="/car-brands" class="btn">
+                    <i class="page-title-icon fa-solid fa-angle-left"></i>
+                </a>
+                Brand Details
+            </h2>
+            <form>
+                <div class="car-brand-detail_logo">
+                    <h3 class="my-3">Brand Logo</h3>
+                    <div class="image-box">
+                        <img [src]="carBrand.logo"/>
+                        <span class="upload-overlay">CHANGE LOGO</span>
+                    </div>
+                </div>
+                <div class="car-brand-detail_info">
+                    <h3 class="my-3">Brand Details</h3>
+                    <div class="mb-3 row">
+                        <div class="col-md-6">
+                            <label for="formControlBrandName" class="form-label">Brand Name</label>
+                            <input [readonly]="!isEditMode" value="{{carBrand.name}}" type="text" class="form-control" id="formControlBrandName">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="formControlBrandStatus" class="form-label">Brand Status</label>
+                            <p><input [readonly]="!isEditMode" type="radio" [checked]="carBrand.is_active" value="{{carBrand.is_active}}"/> Active</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formControlBrandDescription" class="form-label">Brand Description</label>
+                        <textarea [readonly]="!isEditMode" value="{{carBrand.description}}" class="form-control" id="formControlBrandDescription" rows="3"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <a [routerLink]="['/car-brands/edit', carBrand.id]" class="btn btn-primary">Edit Information</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
