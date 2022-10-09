@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CarBrandFaker } from 'src/core/mock/car-brand.mock';
 import { CarBrand } from 'src/core/models/car-brand.model';
 import { Utils } from 'src/core/utils/utils';
+import { AddCarBrandComponent } from '../../components/add-car-brand/add-car-brand.component';
 
 @Component({
   selector: 'app-car-brand-list-page',
@@ -11,25 +14,24 @@ export class CarBrandListPageComponent implements OnInit {
 
   carBrands: Array<CarBrand> = [];
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit(): void {
-    this.getMockCarBrands();
+    this.getCarBrands();
   }
 
-  getMockCarBrands() {
-    for (let i = 1; i <= 15; i++) {
-      const carBrand = new CarBrand({
-        id: i,
-        name: `Car Brand ${i}`,
-        logo: '/assets/images/no-image.png',
-        description: 'Brand desctiption to long so it will be hide. Brand desctiption to long so it will be hide. Brand desctiption to long so it will be hide.',
-        count_models: 1000,
-        updated_at: '2022-10-25',
-        is_active: Boolean(i % 2),
-      });
-      this.carBrands.push(carBrand);
-    }
+  getCarBrands() {
+    this.carBrands = CarBrandFaker.fakeCarBrands();
+  }
+
+  open() {
+    const modalRef = this.modalService.open(AddCarBrandComponent, { 
+      centered: true,
+      size: 'lg',
+    });
+    modalRef.componentInstance.name = 'World';
   }
 
 }

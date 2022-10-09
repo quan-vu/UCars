@@ -23,8 +23,10 @@
                             <input [readonly]="!isEditMode" value="{{carBrand.name}}" type="text" class="form-control" id="formControlBrandName">
                         </div>
                         <div class="col-md-6">
-                            <label for="formControlBrandStatus" class="form-label">Brand Status</label>
-                            <p><input [readonly]="!isEditMode" type="radio" [checked]="carBrand.is_active" value="{{carBrand.is_active}}"/> Active</p>
+                            <h5 class="form-label">Brand Status</h5>
+                            <!-- <label for="formControlBrandStatus" class="form-label">Brand Status</label>
+                            <p><input [readonly]="!isEditMode" type="radio" [checked]="carBrand.is_active" value="{{carBrand.is_active}}"/> Active</p> -->
+                            <app-select-status [isActive]="carBrand.is_active" [readonly]="!isEditMode"></app-select-status>
                         </div>
                     </div>
                     <div class="mb-3">

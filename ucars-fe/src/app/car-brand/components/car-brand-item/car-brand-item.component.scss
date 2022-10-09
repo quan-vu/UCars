@@ -89,3 +89,9 @@
         flex: none;
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .car-brand-item {
+        gap: 10px;
+    }
+}

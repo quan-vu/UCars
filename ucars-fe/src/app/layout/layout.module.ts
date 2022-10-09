@@ -6,11 +6,13 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LayoutRoutingModule } from './layout-routing.module';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     LayoutRoutingModule,
+    // NgbModule,
     // FlexLayoutModule,
   ],
   exports: [],

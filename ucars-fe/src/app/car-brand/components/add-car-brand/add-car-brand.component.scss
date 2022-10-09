@@ -1,0 +1,106 @@
+.add-car-brand {
+
+    .modal-content {
+        min-width: 400px;
+        max-width: 80%;
+        background-color: white;
+    }
+
+    .modal-header {
+        background: #FAFAFA;
+        box-shadow: inset 0px -1px 0px #F1F1F1;
+
+        .btn-close {
+            border: 1px solid #E3E3E3;
+            color: #232323;
+            border-radius: 99px;
+            margin-right: 5px;
+
+            &:focus, &:visited {
+                outline: unset;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .modal-title {
+        font-weight: 600;
+        font-size: 16px;
+        clear: both;
+
+        &-hint {
+            color: #5F5F5F;
+            clear: both;
+        }
+    }
+
+    &_logo {
+
+        .image-box {
+            width: 120px;
+            height: 120px;
+            position: relative;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            &:hover {
+                .upload-overlay {
+                    visibility: visible;
+                }
+            }
+        }
+
+        .upload-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #232323;
+            opacity: 0.8;
+            vertical-align: middle;
+            padding: 35px 10px;
+            font-size: 16px;
+            line-height: 24px;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            cursor: pointer;
+
+            background: #FAFAFA;
+            border: 1px dashed #E3E3E3;
+
+            &_icon {
+                display: block;
+                color: #232323;
+            }
+
+            &_text {
+                font-size: 12px;
+                line-height: 20px;
+                align-items: center;
+                text-align: center;
+                color: #8C8C8C;
+            }
+        }
+    }
+
+    h3 {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
+        padding: 10px 0;
+        box-shadow: inset 0px -1px 0px #F1F1F1;
+    }
+
+    .form-label {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #8C8C8C;
+    }
+
+}

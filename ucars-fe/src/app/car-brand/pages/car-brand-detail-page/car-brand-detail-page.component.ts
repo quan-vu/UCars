@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CarBrandFaker } from 'src/core/mock/car-brand.mock';
 import { CarBrand } from 'src/core/models/car-brand.model';
 
 @Component({
@@ -30,9 +31,21 @@ export class CarBrandDetailPageComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id') || null;
     this.isEditMode = this.route.snapshot.routeConfig && this.route.snapshot.routeConfig?.path?.includes('edit') ? true : false;
     console.log("isEditMode: ", this.isEditMode);
+    if(id) {
+      this.getCarBrand(parseInt(id));
+    };
   }
 
   ngOnInit(): void {
+  }
+
+  getCarBrand(id: number) {
+    const first = CarBrandFaker.fakeCarBrands().find((obj) => {
+      return obj.id === id;
+    });
+    if (first) {
+      this.carBrand = first;
+    }
   }
 
 }

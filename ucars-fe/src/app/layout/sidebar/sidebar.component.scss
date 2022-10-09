@@ -52,9 +52,7 @@
                 &.active, &:hover {
                     background: #0F5EDD;
                     border-radius: 6px;
-                    a {
-                        color: #ffffff;
-                    }
+                    color: #ffffff !important;
                 }
             }
 
