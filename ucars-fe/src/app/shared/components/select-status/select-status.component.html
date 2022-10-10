@@ -1,0 +1,21 @@
+<div *ngIf="!readonly" ngbDropdown container="body">
+    <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle [ngClass]="{'active': isActive, 'inactive': !isActive}">
+        <span class="status" [ngClass]="{'active': isActive, 'inactive': !isActive}">
+            <i class="dot"><i class="child-dot"></i></i> {{statusName}}
+        </span>
+    </button>
+    <div ngbDropdownMenu>
+      <button ngbDropdownItem class="status active">
+        <i class="dot"><i class="child-dot"></i></i> Active
+      </button>
+      <button  ngbDropdownItem class="status inactive">
+        <i class="dot"><i class="child-dot"></i></i> Inactive
+      </button>
+    </div>
+</div>
+
+<div *ngIf="readonly">
+    <span class="status" [ngClass]="{'active': isActive, 'inactive': !isActive}">
+        <i class="dot"><i class="child-dot"></i></i> {{statusName}}
+    </span>
+</div>

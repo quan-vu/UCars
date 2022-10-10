@@ -1,0 +1,94 @@
+// :host {
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 99px;
+        margin-right: 8px;
+        display: inline-block;
+        position: relative;
+
+        .child-dot {
+            background: inherit;
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            border: 2px solid #fff;
+            border-radius: 99px;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+        }
+    }
+
+    .status {
+        padding: 5px 12px;
+        border-radius: 99px;
+    }
+    .active {
+        color: #1F7B4D;
+        background: #CEF7E2;
+        .dot {
+            background: #1F7B4D;
+        }
+    }
+    .inactive {
+        color: #5F5F5F;
+        background: #FAFAFA;
+        .dot {
+            background: #5F5F5F;;
+        }
+    }
+
+    .dropdown-toggle {
+        border-radius: 99px;
+        border: 0;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #1F7B4D;
+
+        &.active {
+            color: #1F7B4D;
+            background: #CEF7E2;
+        }
+
+        &.inactive {
+            color: #5F5F5F;
+            background: #FAFAFA;
+        }
+
+    }
+
+    .dropdown-menu {
+        padding: 8px 12px;
+        margin-top: 5px;
+
+        .dropdown-item {
+            padding-left: 0;
+            margin: 8px 8px 10px 8px;
+
+            &.status {
+                padding: 5px 12px;
+                border-radius: 99px;
+                width: 110px;
+            }
+
+            &.active {
+                color: #1F7B4D;
+                background: #CEF7E2;
+                .dot {
+                    background: #1F7B4D;
+                }
+            }
+
+            &.inactive {
+                color: #5F5F5F;
+                background: #FAFAFA;
+                .dot {
+                    background: #5F5F5F;;
+                }
+            }
+        }
+    }
+// }

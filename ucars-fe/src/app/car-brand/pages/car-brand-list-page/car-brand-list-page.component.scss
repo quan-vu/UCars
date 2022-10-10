@@ -1,0 +1,49 @@
+
+.filter-box {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+
+    &-title {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        color: #2F465F;
+    }
+
+    &-search {
+        background: #F5F5F5;
+        border-radius: 9999px;
+        overflow: hidden;
+        border: 0;
+        padding: 3px 5px;
+        max-width: 300px;
+
+        .input-group-text {
+            border-radius: 100%;
+            background: #f5f5f5;
+            border-color: transparent;
+        }
+
+        input {
+            border-radius: 9999px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left: 0;
+            background: #f5f5f5;
+            border-color: transparent;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            color: #8C8C8C;
+        }
+
+        .fa-icon {
+            color: #5F5F5F;
+        }
+
+    }
+}

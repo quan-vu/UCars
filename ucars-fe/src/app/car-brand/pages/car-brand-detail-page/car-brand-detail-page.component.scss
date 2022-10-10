@@ -1,0 +1,77 @@
+.car-brand-detail {
+
+    &_logo {
+
+        .image-box {
+            width: 120px;
+            height: 120px;
+            position: relative;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            &:hover {
+                .upload-overlay {
+                    visibility: visible;
+                }
+            }
+        }
+
+        .upload-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #232323;
+            opacity: 0.8;
+            vertical-align: middle;
+            padding: 40px 30px;
+            font-size: 16px;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            cursor: pointer;
+            visibility: hidden;
+        }
+    }
+
+    h3 {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
+        padding: 10px 0;
+        box-shadow: inset 0px -1px 0px #F1F1F1;
+    }
+
+    .form-label {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #8C8C8C;
+    }
+
+    
+
+    // View only
+    &.view-only {
+        .image-box {
+            .upload-overlay {
+                visibility: hidden;
+            }
+        }
+        input, textarea {
+            border: transparent;
+            font-weight: 600;
+            padding-left: 0;
+
+            &:focus, &:visited {
+                box-shadow: none;
+            }
+        }
+    }
+}

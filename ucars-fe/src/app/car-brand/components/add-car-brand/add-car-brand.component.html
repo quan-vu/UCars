@@ -1,0 +1,50 @@
+<div class="add-car-brand">
+    <form>
+        <div class="modal-header">
+            <div>
+                <h4 class="modal-title mt-1">Add Car Brand</h4>
+                <p class="modal-title-hint mb-1">Setup new car brand</p>
+            </div>
+            <button type="button" class="btn-close" aria-label="Close"
+                (click)="activeModal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+    
+            <div class="add-car-brand_logo">
+                <h3 class="my-3">Brand Logo</h3>
+                <div class="image-box">
+                    <img [src]="carBrand.logo" />
+                    <span class="upload-overlay">
+                        <span class="upload-overlay_icon"><i class="fa-sharp fa-solid fa-plus"></i></span>
+                        <span class="upload-overlay_text">Brand Logo</span>
+                    </span>
+                </div>
+            </div>
+            <div class="add-car-brand_info">
+                <h3 class="my-3">Brand Details</h3>
+                <div class="mb-3 row">
+                    <div class="col-md-7">
+                        <label for="formControlBrandName" class="form-label">Brand Name</label>
+                        <input value="{{carBrand.name}}" type="text" class="form-control" id="formControlBrandName" placeholder="Input Content">
+                    </div>
+                    <div class="col-md-5">
+                        <h5 class="form-label">Brand Status</h5>
+                        <!-- <p>
+                            <input type="radio" id="formControlBrandStatus" class="me-2"/>
+                            <label for="formControlBrandStatus">Active</label>
+                        </p> -->
+                        <app-select-status [isActive]="true"></app-select-status>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="formControlBrandDescription" class="form-label">Brand Description</label>
+                    <textarea value="{{carBrand.description}}" class="form-control" id="formControlBrandDescription" rows="4" placeholder="Input Content"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cancel</button>
+            <button type="button" class="btn btn-primary">Create Brand</button>
+        </div>
+    </form>
+</div>

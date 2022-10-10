@@ -1,0 +1,46 @@
+:host {
+    height: 64px;
+    background: #FFFFFF;
+    box-shadow: inset 0px -1px 0px #F1F1F1;
+
+    a {
+        text-decoration: none;
+
+        &:focus,
+        &:visited {
+            color: inherit;
+        }
+    }
+
+
+    .btn-icon {
+
+
+        img {
+            width: 24px;
+            height: 24px;
+            text-align: center;
+        }
+    }
+
+    .user-controls {
+        .avatar {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            float: left;
+            margin: -4px 10px 0 0px;
+        }
+
+        .name {
+            display: inline-block;
+            line-height: 28px;
+        }
+
+        .carret {
+            display: inline-block;
+            margin: 0 5px;
+        }
+    }
+
+}

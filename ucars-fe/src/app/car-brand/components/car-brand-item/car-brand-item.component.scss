@@ -1,0 +1,97 @@
+.car-brand-item {
+
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    margin: 20px 0;
+
+    div {
+        flex: 1 0 auto;
+    }
+
+    .check {
+        width: 50px;
+
+        .uc-checkbox-circle {
+            margin-top: calc(100% - 15px);
+        }
+    }
+    .logo {
+        padding: 10px;
+
+        img {
+            width: 80px;
+            height: auto;
+        }
+    }
+
+    .name {
+        font-size: 20px;
+        line-height: 30px;
+        color: #2F465F;
+    }
+
+    .info {
+        flex: 1;
+    }
+
+    .description {
+        color: #8C8C8C;
+        float: left;
+        display: inline-block;
+        width: calc(100% - 110px);
+    }
+
+    .count-models {
+        color: #0F5EDD;
+        float: right;
+        width: 110px;
+        text-align: right;
+    }
+
+    .active, .inactive {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 20px;
+        gap: 8px;
+        background: #FAFAFA;
+        border-radius: 4px;
+        font-size: 16px;
+        line-height: 24px;
+        width: 125px;
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 99px;
+        }
+    }
+
+    .active {
+        color: #1F7B4D;
+
+        .dot {
+            background: #1F7B4D;
+        }
+    }
+
+    .inactive {
+        color: #5F5F5F;
+
+        .dot {
+            background: #5F5F5F;
+        }
+    }
+
+    .actions {
+        flex: none;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .car-brand-item {
+        gap: 10px;
+    }
+}
