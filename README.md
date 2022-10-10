@@ -28,9 +28,21 @@ Cars Management System.
 
 ## Screenshots
 
-**Car Brands**
+**Car Brand List page**
 
-![](screenshot.png)
+![](screenshots/Car-Brand-List-page.png)
+
+**Add Car Brand modal**
+
+![](screenshots/Add-Car-Brand-modal.png)
+
+**Car Brand Detail page**
+
+![](screenshots/Car-Brand-Detail-page.png)
+
+**Car Brand Edit page**
+
+![](screenshots/Car-Brand-Edit-page.png)
 
 ## Author
 
