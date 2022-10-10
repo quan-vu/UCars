@@ -2,10 +2,10 @@ from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
-from .database import Base
+from .base_model import BaseModel
 
 
-class CarBrand(Base):
+class CarBrand(BaseModel):
     __tablename__ = "car_brands"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -19,7 +19,7 @@ class CarBrand(Base):
     car_models = relationship("CarModel", back_populates="car_brand")
 
 
-class CarModel(Base):
+class CarModel(BaseModel):
     __tablename__ = "car_models"
 
     id = Column(Integer, primary_key=True, index=True)

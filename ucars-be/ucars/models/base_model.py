@@ -10,4 +10,5 @@ engine = create_engine(
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Base = declarative_base()
+BaseModel = declarative_base()
+BaseModel.metadata.create_all(bind=engine)

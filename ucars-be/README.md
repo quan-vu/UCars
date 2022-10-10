@@ -2,6 +2,13 @@
 
 The backend Restful API for Ucars project based on Python 3.8 & FastAPI framework.
 
+TODO
+
+- [x] Create fresh FastAPI project.
+- [x] Refactoring project structure for the scalable application.
+- [ ] Unit Testing.
+- [ ] Dockerization.  
+
 **Pre-requisites:**
 
 - Python 3.8 & Virtualenv
@@ -56,3 +63,11 @@ Open your browser this address: http://127.0.0.1:8000
 ```json
 {"message":"Welcome to UCars!"}
 ```
+
+## Screenshots
+
+![Ucars API Docs](screenshot.png)
+
+## Reference
+
+- https://fastapi.tiangolo.com/
