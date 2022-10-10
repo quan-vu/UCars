@@ -28,5 +28,6 @@ class CarModel(Base):
     car_brand_id = Column(Integer, ForeignKey("car_brands.id"))
     created_at = Column(DateTime(timezone=True), default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    is_active = Column(Boolean, default=True)
 
     car_brand = relationship("CarBrand", back_populates="car_models")
