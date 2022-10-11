@@ -70,4 +70,5 @@ Open your browser this address: http://127.0.0.1:8000
 
 ## Reference
 
-- https://fastapi.tiangolo.com/
+- FastAPI: https://fastapi.tiangolo.com/
+- PyTest: https://docs.pytest.org/en/7.1.x/

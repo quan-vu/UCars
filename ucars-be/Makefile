@@ -3,3 +3,6 @@ install:
 
 start:
 	uvicorn ucars.main:app --reload
+
+test:
+	pytest

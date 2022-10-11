@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, status
 from ucars.repositories.car_brand_repository import CarBrandRepository
 from ucars.dependencies import get_db
 from ucars.schemas.car_brand_schema import CarBrandResponse, CarBrandCreate, CarBrandUpdate
@@ -23,11 +23,11 @@ def read_car_brand(id: int, db: Session = Depends(get_db)):
     return car_brand
 
 
-@router.post("/", response_model=CarBrandResponse)
+@router.post("/", response_model=CarBrandResponse, status_code=status.HTTP_201_CREATED)
 def create_car_brand(car_brand: CarBrandCreate, db: Session = Depends(get_db)):
     db_car_brand = CarBrandRepository(db).find_by_name(car_brand.name)
     if db_car_brand:
-        raise HTTPException(status_code=400, detail="Name already registered")
+        raise HTTPException(status_code=400, detail="Name already exists")
     car_brand = CarBrandRepository(db).create(car_brand)
     if car_brand is None:
         raise HTTPException(status_code=500, detail="Failed to create Car Brand")
