@@ -1,4 +1,3 @@
-import json
 from pytest_schema import schema, Or
 from faker import Faker
 
@@ -40,13 +39,11 @@ car_brand_detail_structure = {
 
 class TestCardBrandApi:
 
-
     def test_read_car_brand_list(self):
         response = client.get("/v1/car-brands/")
         data = response.json()
         assert response.status_code == 200
         assert schema(car_brand_list_structure) == data
-
 
     def test_create_car_brand_without_duplicate(self):
         payload = {
@@ -62,7 +59,6 @@ class TestCardBrandApi:
         assert data['is_active'] == payload['is_active']
         assert data['name'] == payload['name']
         assert schema(car_brand_detail_structure) == response.json()
-
 
     def test_create_car_brand_with_duplicated(self):
         payload = {
@@ -80,7 +76,6 @@ class TestCardBrandApi:
 
         assert response.status_code == 400
         assert response.json() == {"detail": "Name already exists"}
-
 
     def test_update_car_brand(self):
         payload = {
@@ -102,9 +97,7 @@ class TestCardBrandApi:
         assert response.status_code == 200
         assert updated_obj['logo'] == 'my logo'
 
-
     def test_delete_car_brand(self):
-
         # Create car brand the first times
         payload = {
             "name": fake.uuid4(),
@@ -122,4 +115,3 @@ class TestCardBrandApi:
         # Get car brand
         response = client.get(f"/v1/car-brands/{created_obj['id']}")
         assert response.status_code == 404
-        

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 from ucars.routers.v1 import root_route, car_brands_route, car_models_route
 
 

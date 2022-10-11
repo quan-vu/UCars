@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 from ucars.routers.v2 import root_route, items_route
 
 

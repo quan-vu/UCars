@@ -21,4 +21,3 @@ app = FastAPI(
 # Register APIs
 app.include_router(router_v1)
 app.include_router(router_v2)
-

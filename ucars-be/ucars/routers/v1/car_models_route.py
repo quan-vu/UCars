@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 @router.get("/")
-def read_car_models(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)): 
+def read_car_models(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     car_models = CarModelRepository(db).get()
     car_models = CarModelRepository(db).paginate(skip=skip, limit=limit)
     return car_models
@@ -33,7 +33,6 @@ def create_car_model(car_model: CarModelCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail="Failed to create Car Model")
     else:
         return car_model
-
 
 
 @router.put("/{id}", response_model=CarModelResponse)

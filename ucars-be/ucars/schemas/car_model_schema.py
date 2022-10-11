@@ -1,9 +1,7 @@
-from typing import List, Optional, Union
-
+from typing import Union
 from pydantic import BaseModel
 
 
-# Car Model
 class CarModelBase(BaseModel):
     name: str
     description: Union[str, None] = None
