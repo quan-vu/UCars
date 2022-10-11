@@ -12,16 +12,13 @@ on:
 permissions:
   contents: read
 
-env:
-  BACKEND_APP_DIR: 'ucars-be'
-
 jobs:
   build:
 
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./$BACKEND_APP_DIR
+        working-directory: ./ucars-be
 
     steps:
     - uses: actions/checkout@v3
