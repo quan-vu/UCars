@@ -51,8 +51,8 @@ class BaseRepository(AbstractRepository):
             return True
         return False
 
-    def get(self, offset: int = 0, limit: int = 10):
-        return self.db.query(self.model).offset(offset).limit(limit).all()
+    def get(self, skip: int = 0, limit: int = 10):
+        return self.db.query(self.model).offset(skip).limit(limit).all()
 
     def filter(self, field: str, value):
         return self.db.query(self.model).filter(self.model[field] == value).first()
@@ -77,17 +77,31 @@ class BaseRepository(AbstractRepository):
         self.db.delete(db_model)
         self.db.commit()
 
-    def paginate(self, limit: int = 10, skip: int = 0, search: str = ''):
-        total = self.db.query(self.model).count()
-        total_page = math.ceil(total / limit) if total > 0 else 0
+    def paginate(self, limit: int = 10, skip: int = 0, search_by: str = '', search_value: str = ''):
+        search_by = search_by.strip()
+        search_value = search_value.strip()
         next_page = None
         data = []
+
+        # Query
+        query = self.db.query(self.model)
+
+        # Search by field
+        if getattr(self.model, search_by):
+            query = query.where(self.model.name.like(f'%{search_value}%'))
+
+        # Count total records
+        total = query.count()
+        total_page = math.ceil(total / limit) if total > 0 else 0
+
+        # Limit & offset
         if total > 0:
-            query = self.db.query(self.model).offset(skip).limit(limit)
+            query = query.offset(skip).limit(limit)
             data = list(query)
             if len(data) > 0:
                 last = data[-1]
-                next_page = f'?limit={limit}&offset={last.id}&search={search}'
+                next_page = f'?limit={limit}&offset={last.id}&search_by={search_by}&search_value={search_value}'
+
         return PaginationResponse(
             total=total,
             limit=limit,

@@ -9,9 +9,11 @@ router = APIRouter()
 
 
 @router.get("/")
-def read_car_brands(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    car_brands = CarBrandRepository(db).get()
-    car_brands = CarBrandRepository(db).paginate(skip=skip, limit=limit)
+def read_car_brands(
+    skip: int = 0, limit: int = 10, search_by: str = '', search_value: str = '', 
+    db: Session = Depends(get_db)
+):
+    car_brands = CarBrandRepository(db).paginate(skip=skip, limit=limit, search_by=search_by, search_value=search_value)
     return car_brands
 
 
