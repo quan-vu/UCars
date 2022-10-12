@@ -1,6 +1,7 @@
 from ucars.repositories.base_repository import BaseRepository
 from ucars.models.car_brand import CarModel
 
+
 class CarModelRepository(BaseRepository):
 
     model = CarModel

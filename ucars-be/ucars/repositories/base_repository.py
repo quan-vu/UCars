@@ -15,9 +15,8 @@ class AbstractRepository(abc.ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def to_list(self, l):
+    def to_list(self, obj):
         raise NotImplementedError
-
 
 
 class BaseRepository(AbstractRepository):
@@ -25,9 +24,8 @@ class BaseRepository(AbstractRepository):
     model: object = NotImplementedError
     db: Session = NotImplementedError
 
-    def __init__(self, db:Session):
+    def __init__(self, db: Session):
         self.db = db
-
 
     def to_dict(self, obj):
         if obj is not None:
@@ -35,7 +33,6 @@ class BaseRepository(AbstractRepository):
                 for c in inspect(obj).mapper.column_attrs}
         else:
             return {}
-
 
     def to_list(self, _list):
         if isinstance(_list, list) and len(_list):
@@ -47,7 +44,6 @@ class BaseRepository(AbstractRepository):
             print("A list is reuired!")
             return []
 
-
     def _is_empty(self, value):
         if value is None:
             return True
@@ -55,25 +51,14 @@ class BaseRepository(AbstractRepository):
             return True
         return False
 
-
-    def find(self, id: int):
-        item = self.db.objects(organization_id=id)
-        if item is not None:
-            return dict(item[0])
-        return None  
-
-
-    def get(self, offset: int = 0, limit: int = 10):
-        return self.db.query(self.model).offset(offset).limit(limit).all()
-
+    def get(self, skip: int = 0, limit: int = 10):
+        return self.db.query(self.model).offset(skip).limit(limit).all()
 
     def filter(self, field: str, value):
         return self.db.query(self.model).filter(self.model[field] == value).first()
 
-
     def find(self, id: int):
         return self.db.query(self.model).filter(self.model.id == id).first()
-
 
     def create(self, data: BaseModel):
         obj = self.model(**data.dict())
@@ -82,37 +67,41 @@ class BaseRepository(AbstractRepository):
         self.db.refresh(obj)
         return obj
 
-
     def update(self, db_model: BaseModel):
         self.db.add(db_model)
         self.db.commit()
         self.db.refresh(db_model)
         return db_model
 
-
     def delete(self, db_model: BaseModel):
         self.db.delete(db_model)
         self.db.commit()
-        
 
-    def paginate(self, limit: int = 10, skip: int = 0, search: str = ''):
-        total = self.db.query(self.model).count()
-        total_page = math.ceil(total / limit) if total > 0 else 0
+    def paginate(self, limit: int = 10, skip: int = 0, search_by: str = '', search_value: str = ''):
+        search_by = search_by.strip()
+        search_value = search_value.strip()
         next_page = None
         data = []
-        
+
+        # Query
+        query = self.db.query(self.model)
+
+        # Search by field
+        if hasattr(self.model, search_by):
+            query = query.where(self.model.name.like(f'%{search_value}%'))
+
+        # Count total records
+        total = query.count()
+        total_page = math.ceil(total / limit) if total > 0 else 0
+
+        # Limit & offset
         if total > 0:
-            query = self.db.query(self.model).offset(skip).limit(limit)
-            
-            # if offset is not None:
-            #     query = query.offset(offset)
-
+            query = query.offset(skip).limit(limit)
             data = list(query)
-
             if len(data) > 0:
                 last = data[-1]
-                next_page = f'?limit={limit}&offset={last.id}&search={search}'
-        
+                next_page = f'?limit={limit}&offset={last.id}&search_by={search_by}&search_value={search_value}'
+
         return PaginationResponse(
             total=total,
             limit=limit,

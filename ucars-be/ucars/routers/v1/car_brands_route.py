@@ -9,9 +9,11 @@ router = APIRouter()
 
 
 @router.get("/")
-def read_car_brands(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)): 
-    car_brands = CarBrandRepository(db).get()
-    car_brands = CarBrandRepository(db).paginate(skip=skip, limit=limit)
+def read_car_brands(
+    skip: int = 0, limit: int = 10, search_by: str = '', search_value: str = '',
+    db: Session = Depends(get_db)
+):
+    car_brands = CarBrandRepository(db).paginate(skip=skip, limit=limit, search_by=search_by, search_value=search_value)
     return car_brands
 
 
@@ -33,7 +35,6 @@ def create_car_brand(car_brand: CarBrandCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail="Failed to create Car Brand")
     else:
         return car_brand
-
 
 
 @router.put("/{id}", response_model=CarBrandResponse)
