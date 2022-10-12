@@ -2,7 +2,32 @@
 
 Cars Management System.
 
-## Features
+Process status: 70%
+
+## TODO
+
+#### Backend
+
+Create RESTful API:
+
+- [x] CRUD - for Car brand
+- [x] CRUD - for Car models
+- [ ] Fetch all cars by brand name
+- [x] Search car by keywords
+- [x] Testing APIs.
+
+#### Frontend
+
+UI
+
+- [x] List Car brand
+- [x] Search Car brand
+- [x] Add a brand
+- [x] Get a brand detail
+- [x] Update brand detail
+- [x] Delete brand detail
+
+Implement features (NOT implement yet)
 
 - [ ] List Car brand
 - [ ] Search Car brand
@@ -10,6 +35,10 @@ Cars Management System.
 - [ ] Get a brand detail
 - [ ] Update brand detail
 - [ ] Delete brand detail
+
+#### Devops
+
+- [ ] Dockerization
 
 ## Technical Stack
 
